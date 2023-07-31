@@ -1,0 +1,68 @@
+{
+  "name": "daguerreotype",
+  "version": "0.1.0",
+  "description": "A snapshot library for Node.js",
+  "main": "lib/daguerreotype.js",
+  "type": "module",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "scripts": {
+    "build": "wireit",
+    "test": "wireit",
+    "lint": "gts lint",
+    "fix": "gts fix",
+    "prepare": "wireit",
+    "pretest": "wireit"
+  },
+  "wireit": {
+    "build": {
+      "command": "tsc -b",
+      "clean": "if-file-deleted",
+      "files": [
+        "src/**",
+        "tsconfig.json"
+      ],
+      "output": [
+        "lib/**",
+        "tsconfig.tsbuildinfo"
+      ]
+    },
+    "test": {
+      "command": "mocha -p lib/"
+    },
+    "pretest": {
+      "dependencies": [
+        "build"
+      ]
+    },
+    "prepare": {
+      "dependencies": [
+        "build"
+      ]
+    }
+  },
+  "keywords": [
+    "snapshot",
+    "testing",
+    "mocha"
+  ],
+  "files": [
+    "lib"
+  ],
+  "author": "Google LLC",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/mocha": "10.0.2",
+    "@types/node": "18.11.9",
+    "gts": "5.0.1",
+    "mocha": "10.2.0",
+    "prettier": "3.0.3",
+    "typescript": "5.2.2",
+    "wireit": "0.14.0"
+  },
+  "dependencies": {
+    "cosmiconfig": "8.3.6",
+    "pkg-dir": "7.0.0"
+  }
+}
