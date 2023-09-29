@@ -1,5 +1,7 @@
 # Daguerreotype 📸
 
+> This is an **experimental** library not ready for public consumption. Please use at your own risk.
+
 _Daguerreotype_ is a modern JavaScript library for snapshot testing in JavaScript.
 
 It is currently compatible with Mocha and provides customizable paths for configuration and snapshot output unlike other libraries.
